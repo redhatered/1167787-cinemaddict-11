@@ -1,6 +1,9 @@
 "use strict";
 
 const CARDS_COUNT = 5;
+const EXTRA_COUNT = 2;
+const TOP_RATED_CARDS_COUNT = 2;
+const MOST_COMMENTED_CARDS_COUNT = 2;
 
 const createHeaderProfileTemplate = () => (
   `<section class="header__profile profile">
@@ -127,8 +130,9 @@ const createFilmDetailsTemplate = () => (
                 <td class="film-details__cell">
                   <span class="film-details__genre">Drama</span>
                   <span class="film-details__genre">Film-Noir</span>
-                  <span class="film-details__genre">Mystery</span></td>
-                </tr>
+                  <span class="film-details__genre">Mystery</span>
+                </td>
+              </tr>
             </table>
             
             <p class="film-details__film-description">
@@ -247,6 +251,12 @@ const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
+const renderList = (container, template, count = 1) => {
+  for (let i = 0; i < count; i++) {
+    render(container, template);
+  }
+};
+
 const headerElement = document.querySelector(`.header`);
 
 render(headerElement, createHeaderProfileTemplate());
@@ -263,24 +273,19 @@ render(filmsElement, createFilmsListTemplate());
 
 const filmsListContainerElement = filmsElement.querySelector(`.films-list__container`);
 
-for (let i = 0; i < CARDS_COUNT; i++) {
-  render(filmsListContainerElement, createFilmCardTemplate());
-}
+renderList(filmsListContainerElement, createFilmCardTemplate(), CARDS_COUNT);
 
 const filmsListElement = document.querySelector(`.films-list`);
 
 render(filmsListElement, createShowMoreTemplate());
-render(filmsElement, createFilmsListExtraTemplate());
-render(filmsElement, createFilmsListExtraTemplate());
+renderList(filmsElement, createFilmsListExtraTemplate(), EXTRA_COUNT);
 
 const filmsListExtraElements = document.querySelectorAll(`.films-list--extra`);
 const filmsListContainerTopRated = filmsListExtraElements[0].querySelector(`.films-list__container`);
 const filmsListContainerMostCommented = filmsListExtraElements[1].querySelector(`.films-list__container`);
 
-render(filmsListContainerTopRated, createFilmCardTemplate());
-render(filmsListContainerTopRated, createFilmCardTemplate());
-render(filmsListContainerMostCommented, createFilmCardTemplate());
-render(filmsListContainerMostCommented, createFilmCardTemplate());
+renderList(filmsListContainerTopRated, createFilmCardTemplate(), TOP_RATED_CARDS_COUNT);
+renderList(filmsListContainerMostCommented, createFilmCardTemplate(), MOST_COMMENTED_CARDS_COUNT);
 
 const bodyElement = document.querySelector(`body`);
 
