@@ -1,12 +1,12 @@
-import {createHeaderProfileTemplate} from './components/headerProfileTemplate';
-import {createMenuTemplate} from './components/menuTemplate';
-import {createSortTemplate} from './components/sortTemplate';
-import {createFilmsTemplate} from './components/filmsTemplate';
-import {createFilmsListTemplate} from './components/filmsListTemplate';
-import {createFilmCardTemplate} from './components/filmCardTemplate';
-import {createShowMoreTemplate} from './components/showMoreTemplate';
-import {createFilmsListExtraTemplate} from './components/filmsListExtraTemplate';
-import {createFilmDetailsTemplate} from './components/filmDetailsTemplate';
+import {createHeaderProfileTemplate} from './components/header-profile-template';
+import {createMenuTemplate} from './components/menu-template';
+import {createSortTemplate} from './components/sort-template';
+import {createFilmsTemplate} from './components/films-template';
+import {createFilmsListTemplate} from './components/films-list-template';
+import {createFilmCardTemplate} from './components/film-card-template';
+import {createShowMoreTemplate} from './components/show-more-template';
+import {createFilmsListExtraTemplate} from './components/films-list-extra-template';
+import {createFilmDetailsTemplate} from './components/film-details-template';
 import {render, renderList} from './components/utils';
 
 const CARDS_COUNT = 5;
